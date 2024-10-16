@@ -1,11 +1,12 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { motion } from "framer-motion";
 import { Award, BookOpen, Briefcase, GraduationCap, Users } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+import { Button } from "./ui/button";
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -192,7 +193,7 @@ export default function About() {
             results.
           </p>
           <Button className="bg-teal-600 hover:bg-teal-700 text-white transition-colors">
-            Get in Touch
+            <Link href="/contact">Get in Touch</Link>
           </Button>
         </motion.div>
 
