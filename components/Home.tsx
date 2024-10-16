@@ -3,23 +3,22 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { motion, useAnimation } from "framer-motion";
 import {
-  Pen,
-  FileText,
-  Newspaper,
-  Globe,
-  MessageCircle,
-  Phone,
-  Mail,
   ArrowRight,
-  Menu,
-  X,
-  MessageSquare,
   ChevronDown,
+  FileText,
+  Globe,
+  Mail,
+  MessageCircle,
+  MessageSquare,
+  Newspaper,
+  Pen,
+  Phone,
+  X,
 } from "lucide-react";
 import Image from "next/image";
-import { useState, useEffect } from "react";
-import { motion, useAnimation } from "framer-motion";
+import { useEffect, useState } from "react";
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -61,7 +60,6 @@ const FloatingShape = ({
 };
 
 export function Home() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
 
@@ -87,86 +85,6 @@ export function Home() {
           <Globe className="w-32 h-32" />
         </FloatingShape>
       </div>
-
-      <motion.nav
-        className="bg-white shadow-md sticky top-0 z-50"
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center py-4">
-            <div className="flex items-center">
-              <span className="text-xl font-semibold text-teal-600">VM</span>
-            </div>
-            <div className="hidden md:flex space-x-4">
-              <a
-                href="#"
-                className="text-gray-600 hover:text-teal-600 transition-colors"
-              >
-                Home
-              </a>
-              <a
-                href="#"
-                className="text-gray-600 hover:text-teal-600 transition-colors"
-              >
-                Services
-              </a>
-              <a
-                href="#"
-                className="text-gray-600 hover:text-teal-600 transition-colors"
-              >
-                About
-              </a>
-              <a
-                href="#"
-                className="text-gray-600 hover:text-teal-600 transition-colors"
-              >
-                Contact
-              </a>
-            </div>
-            <div className="md:hidden">
-              <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
-                {isMenuOpen ? <X /> : <Menu />}
-              </button>
-            </div>
-          </div>
-          {isMenuOpen && (
-            <motion.div
-              className="md:hidden py-4"
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
-            >
-              <a
-                href="#"
-                className="block py-2 text-gray-600 hover:text-teal-600 transition-colors"
-              >
-                Home
-              </a>
-              <a
-                href="#"
-                className="block py-2 text-gray-600 hover:text-teal-600 transition-colors"
-              >
-                Services
-              </a>
-              <a
-                href="#"
-                className="block py-2 text-gray-600 hover:text-teal-600 transition-colors"
-              >
-                About
-              </a>
-              <a
-                href="#"
-                className="block py-2 text-gray-600 hover:text-teal-600 transition-colors"
-              >
-                Contact
-              </a>
-            </motion.div>
-          )}
-        </div>
-      </motion.nav>
 
       <motion.header
         className="relative bg-teal-600 text-white overflow-hidden py-20"
@@ -455,35 +373,6 @@ export function Home() {
           </form>
         </motion.section>
       </main>
-
-      <motion.footer
-        className="bg-teal-800 text-white py-12"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-      >
-        <div className="container mx-auto px-4 text-center">
-          <p>
-            &copy; {new Date().getFullYear()} Victoria McKenna. All rights
-            reserved.
-          </p>
-          <p className="mt-2">Direct Response Copywriting Specialist</p>
-          <div className="mt-4 flex justify-center space-x-4">
-            <a href="#" className="hover:underline transition-colors">
-              About
-            </a>
-            <a href="#" className="hover:underline transition-colors">
-              Services
-            </a>
-            <a href="#" className="hover:underline transition-colors">
-              Contact
-            </a>
-            <a href="#" className="hover:underline transition-colors">
-              Privacy Policy
-            </a>
-          </div>
-        </div>
-      </motion.footer>
 
       {/* Chatbot Icon */}
       <motion.div
